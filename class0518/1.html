@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <p>Hello {{name}}，來到這個網站，要去聽{{music[0]}}，會用{{skill["f2e"]}}，{{skill["b2e"]}}
+        </p>
+        <p>{{live?"活著":"鼠了"}}</p>
+        <h6 v-text="age"></h6>
+        <h6 v-text="live"></h6>
+        <h6>{{music[0]}},{{music[1]}},{{music[2]}}</h6>
+        <h6>f2e : {{skill['f2e'][0]}}</h6>
+        <h6>b2e : {{skill['b2e'][0]}}</h6>
+        <h6 v-text="gender"></h6>
+        <h6 v-html="content"></h6>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        // console.log(Vue)
+        const app = Vue.createApp({
+            data() {
+                return {
+                    name: '吳憂憂',
+                    age: 25,
+                    live: false,
+                    music: ['aimar', 'on ok rock', 'mamamoo'],
+                    skill: {
+                        f2e: ['vue', 'react'],
+                        b2e: ['php', 'nodejs', 'ASP,net']
+                    },
+                    gender: null,
+                    content: '<div style="color:red">嘿嘿<br>吼吼</div>'
+                }
+            },
+        })
+        app.mount('#app')
+    </script>
+</body>
+
+</html>
