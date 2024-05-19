@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            padding: 0.5rem;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <!-- <img src="./images/Acer_Wallpaper_01_3840x2400.jpg" alt=""> -->
+        <button @click="reduceW">縮小圖片</button>
+        <img :src="imgUrl" :style="{
+            width:`${widths}rem`,
+            backgroundColor:bg  
+        }" alt="">
+        <button @click="addW">加大圖片</button>
+    </div>
+    <script src="https://unpkg.com/vue"></script>
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    imgUrl: "./images/OIP.jpg",
+                    widths: 0,
+                    bg: "#999"
+                }
+            },
+            methods: {
+
+                addW() {
+                    if (this.widths === 9) {
+                        return;
+                    }
+                    this.widths += 1
+                    this.bg = `#${this.widths}${this.widths}${this.widths}`
+
+                },
+                reduceW() {
+                    this.widths -= 1
+                }
+            },
+        }).mount("#app")
+    </script>
+</body>
+
+</html>
