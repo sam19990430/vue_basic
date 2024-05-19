@@ -43,22 +43,25 @@
     <section>
 
         <div class="container" id="app">
+            <!-- <p v-for="n in 10 ">
+                {{n}}
+            </p> -->
             <h3>Shopping Cart </h3>
 
-            <div class="card">
+            <div class="card" v-for="(card,cardIndex) in cartlist" :key="card['id']">
                 <div class="content">
                     <div class="pname">
-                        <picture> <img :src="cartlist[0]['img']" alt=""></picture>
-                        <div class="title">{{cartlist[0]['title']}}</div>
+                        <picture> <img :src="card['img']" alt=""></picture>
+                        <div class="title">{{card['title']}}</div>
                     </div>
-                    <button @click="reduce(0)">-</button>
-                    <div class="number">{{cartlist[0]['count']}}</div>
-                    <button @click="add(0)">+</button>
-                    <div class="price">${{cartlist[0]['price']}}</div>
+                    <button @click="reduce(cardIndex)">-</button>
+                    <div class="number">{{card['count']}}</div>
+                    <button @click="add(cardIndex)">+</button>
+                    <div class="price">${{card['price']}}</div>
                     <button>X</button>
                 </div>
             </div>
-            <div class="card">
+            <!-- <div class="card">
                 <div class="content">
                     <div class="pname">
                         <picture> <img :src="cartlist[1]['img']" alt=""></picture>
@@ -83,7 +86,7 @@
                     <div class="price">${{cartlist[2]['price']}}</div>
                     <button>X</button>
                 </div>
-            </div>
+            </div> -->
 
         </div>
     </section>
